@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Parsedown;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
+use App\Category;
 
 class IndexController extends Controller
 {
@@ -22,12 +21,15 @@ class IndexController extends Controller
 
       $path = base_path();
 
-      $ite=new RecursiveDirectoryIterator($path."/documents/");
+      $ite=new \RecursiveDirectoryIterator($path."/documents/");
 
-      foreach (new RecursiveIteratorIterator($ite) as $filename=>$cur) {
+      foreach (new \RecursiveIteratorIterator($ite) as $filename=>$cur) {
 
-          echo "$filename\n";
+        //  echo "$filename\n";
       }
 
+      $categories = Category::all();
+
+      return view('menu', ['categories' => $categories]);
     }
 }

@@ -15,7 +15,7 @@ Route::get('/', [
   'uses' => 'indexController@index',
   'as' => 'index'
 ]);
-Route::get('/{folder}/{reference}', [
+Route::get('/file/{reference}', [
   'uses' => 'FilesController@showSingle',
   'as' => 'file_page'
 ]);

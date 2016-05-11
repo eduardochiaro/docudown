@@ -9,11 +9,10 @@ use App\File;
 
 class FilesController extends Controller
 {
-    public function showSingle($folder, $reference){
+    public function showSingle($reference){
 
-      $file = new File();
-      $file->folder = $folder;
-      $file->reference = $reference;
+      $file = File::where('reference', $reference)->first();
+
       $file->prepareData();
 
       echo $file->generateTree();

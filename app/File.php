@@ -11,10 +11,22 @@ class File extends Model
     protected $_html = null;
     protected $_parse = null;
 
+    public function category()
+    {
+      return $this->belongsTo('App\Category', 'category_id');
+    }
     public function prepareData(){
 
         $path = base_path();
-        $this->_file = $path.'/documents/'.$this->folder.'/'.$this->reference.'.md';
+
+        $folder = $this->category->reference;
+        if($this->category->parent){
+          $folder = $this->category->parent->reference.DIRECTORY_SEPARATOR .$folder;
+        }
+
+
+        $this->_file = $path.DIRECTORY_SEPARATOR .'documents'.DIRECTORY_SEPARATOR .$folder.DIRECTORY_SEPARATOR .$this->reference.'.md';
+
         $file_content = file_get_contents($this->_file);
 
         $this->_parse = new Parsedown();
