@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\File;
+use App\Category;
 
 class FilesController extends Controller
 {
@@ -15,7 +16,12 @@ class FilesController extends Controller
 
       $file->prepareData();
 
-      echo $file->generateTree();
-      echo $file->generateHTML();
+      $tree = $file->generateTree();
+      $html = $file->generateHTML();
+
+
+      $categories = Category::all();
+
+      return view('sections.page', ['tree' => $tree,'html' => $html, 'categories'=> $categories]);
     }
 }
