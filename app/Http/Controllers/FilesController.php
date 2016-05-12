@@ -10,9 +10,9 @@ use App\Category;
 
 class FilesController extends Controller
 {
-    public function showSingle($reference){
+    public function showSingle($filename){
 
-      $file = File::where('reference', $reference)->first();
+      $file = File::where('filename', $filename)->first();
 
       $file->prepareData();
 

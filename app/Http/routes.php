@@ -15,7 +15,12 @@ Route::get('/', [
   'uses' => 'indexController@index',
   'as' => 'index'
 ]);
-Route::get('/file/{reference}', [
+Route::get('/file/{filename}', [
   'uses' => 'FilesController@showSingle',
   'as' => 'file_page'
+]);
+
+Route::get('/json/scanfolder/{folder}', [
+  'uses' => 'JsonController@scanFolder',
+  'as' => 'json_scanfolder'
 ]);

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>App Name | @yield('title')</title>
         <link href="{{URL::to('/css/foundation.min.css')}}" rel="stylesheet">
+        <link href="{{URL::to('/css/foundation-icons.css')}}" rel="stylesheet">
         <link href="{{URL::to('/css/app.css')}}" rel="stylesheet">
     </head>
     <body>
@@ -25,6 +26,7 @@
       <script src="{{URL::to('/js/vendor/foundation.min.js')}}"></script>
       <script>
         $(document).foundation();
+        var _base_path = "{{URL::to('/')}}";
       </script>
       <script src="{{URL::to('/js/app.js')}}"></script>
     </body>
