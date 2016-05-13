@@ -14,13 +14,6 @@ class IndexController extends Controller
 
       $path = base_path();
 
-      $ite=new \RecursiveDirectoryIterator($path."/documents/");
-
-      foreach (new \RecursiveIteratorIterator($ite) as $filename=>$cur) {
-
-        //  echo "$filename\n";
-      }
-
       $categories = Category::all();
 
       return view('sections.index', ['categories' => $categories]);
