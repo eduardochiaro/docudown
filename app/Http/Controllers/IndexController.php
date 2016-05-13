@@ -14,8 +14,11 @@ class IndexController extends Controller
 
       $path = base_path();
 
-      $categories = Category::all();
+      $categories = $this->getCategories();
 
       return view('sections.index', ['categories' => $categories]);
+    }
+    public function getCategories(){
+      return Category::orderby('name', 'asc')->get();
     }
 }

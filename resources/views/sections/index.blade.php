@@ -1,9 +1,13 @@
 @extends('master')
 
-@section('content')
-<h1>home page</h1>
+@section('title')
+Homepage
 @endsection
 
-@section('sidebar')
-
+@section('content')
+<div class="medium-13 columns">
+  <div class="text-center">
+    <h1>home page</h1>
+  </div>
+</div>
 @endsection

@@ -20,7 +20,8 @@ class FilesController extends Controller
       $html = $file->generateHTML();
 
 
-      $categories = Category::all();
+      $categories = app('App\Http\Controllers\IndexController')->getCategories();
+      
 
       return view('sections.page', ['tree' => $tree,'html' => $html, 'categories'=> $categories]);
     }

@@ -4,24 +4,31 @@
 
   <div class="top-bar-left">
     <ul class="vertical medium-horizontal dropdown menu" data-dropdown-menu>
+      <li><a href="{{route('index')}}">Home</a></li>
       @foreach ($categories as $category)
           @if ($category->parent_id <= 0)
             <li class="has-submenu">
-              <a href="#">{{ $category->name }}</a>
+              <a>{{ $category->name }}</a>
+              @if (count($category->children) > 0 || count($category->files) > 0 )
               <ul class="submenu menu vertical medium-vertical" data-submenu>
-              @foreach ($category->children as $children)
-                <li><a href="#">{{ $children->name }}</a>
-                <ul class="submenu menu vertical medium-vertical" data-submenu>
+                @foreach ($category->children as $children)
+                  <li><a>{{ $children->name }}</a>
+                  @if (count($children->files) > 0)
+                  <ul class="submenu menu vertical medium-vertical" data-submenu>
 
-                @foreach ($children->file as $file)
-                  <li><a href="{{route('file_page', ['filename'=>$file->filename])}}">{{ $file->reference }}</a></li>
-                @endforeach
-                </ul></li>
+                  @foreach ($children->files as $file)
+                    <li><a href="{{route('file_page', ['filename'=>$file->filename])}}">{{ $file->reference }}</a></li>
+                  @endforeach
+                  </ul>
+                  @endif
+              </li>
               @endforeach
-              @foreach ($category->file as $file)
+              @foreach ($category->files as $file)
                 <li><a href="{{route('file_page', ['filename'=>$file->filename])}}">{{ $file->reference }}</a></li>
               @endforeach
               </ul>
+
+            @endif
             </li>
           @endif
 

@@ -11,3 +11,147 @@
 #weel{
   font-size: 40px;
 }
+
+.markdown {
+  text-align: center;
+  font-family: georgia, serif;
+  font-size: 120%;
+  line-height: 1.6;
+  margin: 0;
+  background: #fdfdfd;
+  margin: auto;
+  color: #0a0a0a;
+}
+.markdown a {
+  outline: none !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+.markdown a:link {
+  color: #c00;
+}
+.markdown a:visited {
+  color: #606;
+}
+.markdown a:hover {
+  color: #606;
+}
+.markdown a:active {
+  color: #900;
+  outline: none;
+}
+.markdown h1 {
+  font-size: 320%;
+  line-height: 1.35;
+  font-style: normal;
+  margin: 1em 0 0.8em;
+}
+.markdown h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 150%;
+  letter-spacing: 0.15em;
+  margin: 1em 0 0.8em;
+  text-align: left;
+}
+.markdown h3 {
+  font-weight: bold;
+  font-size: 150%;
+  margin: 1em 0 0.8em;
+  text-align: left;
+}
+.markdown h4 {
+  font-weight: normal;
+  font-size: 150%;
+  letter-spacing: 0.1em;
+  margin: 1.5em 0 0.8em;
+  text-align: left;
+}
+.markdown h5 {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 150%;
+  margin: 1.5em 0 0.8em;
+  text-align: left;
+}
+.markdown h6 {
+  font-weight: bold;
+  font-size: 100%;
+  letter-spacing: 0.1em;
+  margin: 1.5em 0 0.8em;
+  text-align: left;
+}
+.markdown p {
+  text-align: left;
+  font-size: 100%;
+  margin: 1em 0 0;
+}
+.markdown p.lead {
+  font-size: 150%;
+  margin: 1em 0;
+}
+.markdown p + ul, .markdown p + ol, .markdown p + dl {
+  margin-bottom: 1.5em;
+}
+.markdown p.lead + p {
+  text-indent: 0;
+}
+.markdown blockquote {
+  border-left: 5px solid #eee;
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+.markdown blockquote small {
+  display: block;
+  line-height: 1.7em;
+}
+.markdown ul, .markdown ol, .markdown dl {
+  text-align: left;
+  padding-left: 2em;
+}
+.markdown dt {
+  font-weight: bold;
+}
+.markdown code {
+  font-family: courier, monospace;
+}
+.markdown p > code {
+  padding: 0.25em;
+  background: #f0f0f0;
+}
+.markdown pre {
+  text-align: left;
+  font-size: 1.2em;
+}
+.markdown hr {
+  height: 0;
+  color: #eee;
+  border: 1px solid #eee;
+  margin: 2em 0 1em;
+}
+.markdown .normal {
+  font-weight: normal;
+}
+.markdown .quiet {
+  color: #999;
+}
+.markdown .pull-left {
+  float: left;
+  margin: 0.5em 2em 1em 0;
+}
+.markdown .pull-right {
+  float: right;
+  margin: 0.5em 0 1em 2em;
+}
+.markdown li.task-list-item {
+  list-style: none;
+  margin-left: -1em;
+}
+.markdown li.task-list-item-checked {
+  color: #666;
+  text-decoration: line-through;
+}
+.markdown img, .markdown iframe {
+  max-width: 100%;
+  max-height: 800px;
+}

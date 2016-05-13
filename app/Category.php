@@ -9,7 +9,7 @@ class Category extends Model
 
   protected $guarded = ['id'];
 
-  public function file()
+  public function files()
   {
     return $this->hasMany('App\File');
   }
