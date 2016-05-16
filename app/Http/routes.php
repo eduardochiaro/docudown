@@ -24,3 +24,11 @@ Route::get('/json/scanfolder/{folder}', [
   'uses' => 'JsonController@scanFolder',
   'as' => 'json_scanfolder'
 ]);
+
+Route::group(['prefix' => 'api/v1'], function () {
+        Route::resource('/file', 'ApiDocumentsController',[
+          'only' => ['index', 'show']]);
+        Route::get('404', function(){
+          var_dump('a');
+        });
+});
