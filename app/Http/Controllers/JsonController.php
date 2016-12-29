@@ -16,6 +16,7 @@ class JsonController extends Controller
       $path = realpath(base_path().DIRECTORY_SEPARATOR.$folder);
       $tree = array();
       $success = false;
+
       $tree = $this->dirToArray($path);
       if(!empty($tree)){
         DB::table('categories')->truncate();
@@ -33,7 +34,7 @@ class JsonController extends Controller
        $cdir = scandir($dir);
        foreach ($cdir as $key => $value)
        {
-          if (!in_array($value,array(".","..")))
+          if (!in_array($value,array(".","..",".DS_Store")))
           {
              if (is_dir($dir . DIRECTORY_SEPARATOR . $value))
              {
@@ -54,7 +55,7 @@ class JsonController extends Controller
         //var_dump($key);
         if(!is_numeric($key)){
 
-          $name= ucfirst(str_replace('_', '', $key));
+          $name= ucwords(str_replace('_', ' ', $key));
 
           $class = new Category();
           $class->parent_id = $level;
@@ -65,7 +66,9 @@ class JsonController extends Controller
           $this->saveScan($sub, $class->id);
 
         }else{
-          $reference= ucfirst(str_replace('.md', '', $sub));
+          $find = ['.md', '_'];
+          $replace = ['', ' '];
+          $reference= ucwords(str_replace($find, $replace, $sub));
 
           $class = new File();
           $class->filename = $sub;

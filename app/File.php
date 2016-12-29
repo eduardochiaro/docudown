@@ -25,7 +25,7 @@ class File extends Model
         }
 
 
-        $this->_file = $path.DIRECTORY_SEPARATOR .'documents'.DIRECTORY_SEPARATOR .$folder.DIRECTORY_SEPARATOR .$this->reference.'.md';
+        $this->_file = $path.DIRECTORY_SEPARATOR .'documents'.DIRECTORY_SEPARATOR .$folder.DIRECTORY_SEPARATOR .$this->filename;
 
         $file_content = file_get_contents($this->_file);
 
@@ -45,12 +45,18 @@ class File extends Model
           if($node->nodeName == 'h3'){
             $append = ' * ';
           }
-          $tree_markdown[] = $append.$node->nodeValue; //gives you the text inside
+          $anchor = strtolower(filter_var($node->nodeValue, FILTER_SANITIZE_URL));
+          $text = "[".$node->nodeValue."](#".$anchor.")";
+          $tree_markdown[] = utf8_decode($append.$text); //gives you the text inside
       }
 
       return $this->_parse->text(implode("\n",$tree_markdown));
     }
     public function generateHTML(){
-      return $this->_html;
+      $html = $this->_html;
+      $html = preg_replace_callback('/<h([2-3])>(.*?)<\/h([2-3])>/i', function($match){
+                return '<h'.$match[1].'><a name="'.strtolower(filter_var($match[2], FILTER_SANITIZE_URL)).'"></a>'.$match[2].'</h'.$match[1].'>';
+              }, $html);
+      return $html;
     }
 }

@@ -18,11 +18,18 @@ class FilesController extends Controller
 
       $tree = $file->generateTree();
       $html = $file->generateHTML();
+      $title = $file->reference;
 
 
       $categories = app('App\Http\Controllers\IndexController')->getCategories();
-      
 
-      return view('sections.page', ['tree' => $tree,'html' => $html, 'categories'=> $categories]);
+      $data = [
+        'tree' => $tree,
+        'html' => $html,
+        'title' => $title,
+        'categories'=> $categories
+      ];
+
+      return view('sections.page', $data);
     }
 }
