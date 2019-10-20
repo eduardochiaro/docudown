@@ -1,8 +1,6 @@
 
 <!-- Medium-Up Navigation -->
 <nav class="top-bar" id="nav-menu">
-
-  <div class="top-bar-left">
     <ul class="vertical medium-horizontal dropdown menu" data-dropdown-menu>
       <li><a href="{{route('index')}}">Home</a></li>
       @foreach ($categories as $category)
@@ -34,8 +32,5 @@
 
       @endforeach
     </ul>
-  </div>
-<div class="top-bar-right">
-<a href="#" id="weel" class="fi-widget" title="scan folders"></a>
-</div>
 </nav>
+<a href="#" id="weel" class="float-right pr-4" title="scan folders">scan</a>

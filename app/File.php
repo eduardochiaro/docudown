@@ -46,8 +46,10 @@ class File extends Model
             $append = ' * ';
           }
           $anchor = strtolower(filter_var($node->nodeValue, FILTER_SANITIZE_URL));
-          $text = "[".$node->nodeValue."](#".$anchor.")";
-          $tree_markdown[] = utf8_decode($append.$text); //gives you the text inside
+          if ($anchor) {
+            $text = "[".$node->nodeValue."](#".$anchor.")";
+            $tree_markdown[] = utf8_decode($append.$text); //gives you the text inside
+          }
       }
 
       return $this->_parse->text(implode("\n",$tree_markdown));

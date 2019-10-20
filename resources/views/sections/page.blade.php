@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-<div class="medium-3 columns sidemenu">
+<div class="col-2 sidemenu">
   <h4>Overview</h4>
   {!! $tree !!}
 </div>
-<div class="medium-9 columns markdown">
+<div class="col-10 markdown">
   {!! $html !!}
 </div>
 
