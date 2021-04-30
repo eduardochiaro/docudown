@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,24 +14,11 @@
 */
 
 Route::get('/', [
-	'uses' => 'indexController@index',
-	'as' => 'index'
-  ]);
-  Route::get('/file/{filename}', [
-	'uses' => 'FilesController@showSingle',
-	'as' => 'file_page'
-  ]);
-  
-  Route::get('/json/scanfolder/{folder}', [
-	'uses' => 'JsonController@scanFolder',
-	'as' => 'json_scanfolder'
-  ]);
-  
-  Route::group(['prefix' => 'api/v1'], function () {
-		  Route::resource('/file', 'ApiDocumentsController',[
-			'only' => ['index', 'show']]);
-		  Route::get('404', function(){
-			var_dump('a');
-		  });
-  });
-  
+    'uses' => 'App\Http\Controllers\indexController@index',
+    'as' => 'index'
+]);
+
+Route::get('/file/{folder}/{filename}', [
+    'uses' => 'App\Http\Controllers\FilesController@showSingle',
+    'as' => 'file_page'
+]);

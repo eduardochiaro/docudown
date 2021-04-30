@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Parsedown;
@@ -13,19 +13,19 @@ class File extends Model
 
     public function category()
     {
-      return $this->belongsTo('App\Category', 'category_id');
+      return $this->belongsTo('App\Models\Category', 'category_id');
     }
+
     public function prepareData(){
 
         $path = base_path();
 
         $folder = $this->category->reference;
         if($this->category->parent){
-          $folder = $this->category->parent->reference.DIRECTORY_SEPARATOR .$folder;
+          $folder = $this->category->parent->reference . DIRECTORY_SEPARATOR .$folder;
         }
 
-
-        $this->_file = $path.DIRECTORY_SEPARATOR .'documents'.DIRECTORY_SEPARATOR .$folder.DIRECTORY_SEPARATOR .$this->filename;
+        $this->_file = $path.DIRECTORY_SEPARATOR .'documents' . DIRECTORY_SEPARATOR .$folder.DIRECTORY_SEPARATOR .$this->filename;
 
         $file_content = file_get_contents($this->_file);
 

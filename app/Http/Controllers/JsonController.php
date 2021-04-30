@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use DB;
 use App\Http\Requests;
-use App\Category;
-use App\File;
+use App\Models\Category;
+use App\Models\File;
 
 class JsonController extends Controller
 {

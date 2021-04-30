@@ -1,0 +1,104 @@
+@import "./variables";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: $background;
+  color: $color;
+  letter-spacing: 0.1em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 50px 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+  padding: 20px;
+  .title {
+    grid-column: 1 / span 2;
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .sidebar {
+    grid-column: 1;
+    grid-row: 2;
+    .sidebarTitle {
+      background-color: $container;
+      color: $container-text;
+      padding: 5px 20px;
+      text-transform: uppercase;
+      h2 {
+        padding: 0;
+        margin: 0;
+        font-size: 1.3rem;
+      }
+      margin-bottom: 20px;
+    }
+    .sidebarBody {
+      border: 1px solid $container;
+      ul {
+        padding: 0;
+        list-style: none;
+
+        li {
+          a {
+            padding: 5px 20px 5px 40px;
+            display: block;
+            position: relative;
+            &:focus,
+            &:hover {
+              outline: none;
+              background-color: $container;
+              color: $container-text;
+            }
+          }
+          &.active {
+            a {
+              &:before {
+                content: "•";
+                position: absolute;
+                top: -5px;
+                left: 14px;
+                font-size: 1.8rem;
+              }
+            }
+          }
+          ul {
+            a {
+              padding: 5px 20px 5px 60px;
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+  .main {
+    grid-column: 2;
+    grid-row: 2;
+    border: 1px solid $container;
+    padding: 20px;
+    h1 {
+      font-size: 2rem;
+      margin: 1rem 0 ;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+}
