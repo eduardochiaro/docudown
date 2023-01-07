@@ -1,8 +1,5 @@
 import Head from 'next/head';
-import { Inter } from '@next/font/google';
-import Header from '../components/Header';
-
-const inter = Inter({ subsets: ['latin'] });
+import Header from '@/components/Header';
 
 export default function Home() {
   return (
@@ -11,7 +8,11 @@ export default function Home() {
         <title>Docudown</title>
       </Head>
 
-      <Header />
+      <div className="w-full h-full antialiased bg-white dark:bg-gray-700">
+        <div className="flex flex-no-wrap">
+          <Header />
+        </div>
+      </div>
     </>
   );
 }
