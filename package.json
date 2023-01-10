@@ -41,6 +41,7 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "marked": "^4.2.5",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -49,11 +50,17 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "@types/marked": "^4.0.8",
     "autoprefixer": "^10.4.13",
     "dotenv-cli": "^6.0.0",
     "postcss": "^8.4.20",
     "prettier": "^2.8.1",
     "prisma": "^4.8.1",
     "tailwindcss": "^3.2.4"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
   }
 }

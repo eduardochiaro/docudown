@@ -20,7 +20,8 @@ model Category {
 model Page {
   id          Int     @id @default(autoincrement())
   title       String
-  filename    String
+  path        String
+  content     String
   category    Category @relation(fields: [categoryId], references: [id])
   categoryId  Int
 }
