@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+
+    fontFamily: {
+      'header': ['Noto Sans Tangsa', 'sans-serif']
+    }
   },
   plugins: [],
 }

@@ -34,6 +34,7 @@
   "homepage": "https://github.com/eduardochiaro/docudown#readme",
   "dependencies": {
     "@heroicons/react": "^2.0.13",
+    "@markdoc/markdoc": "^0.2.1",
     "@next/font": "13.1.1",
     "@prisma/client": "^4.8.1",
     "@types/node": "18.11.18",
@@ -41,7 +42,6 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
-    "marked": "^4.2.5",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -10,12 +10,12 @@ const Header = ({ category }: { category: string | string[] | undefined }) => {
   const { data } = useStaleSWR('/api/categories');
 
   return (
-    <nav className="w-28 xl:w-56 flex flex-col justify-between min-h-screen border-r bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800">
-      <Link href="#" className="flex items-center gap-3 px-4 pt-4 pb-10">
+    <nav className="md:w-56 flex flex-col justify-between md:min-h-screen border-r bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800">
+      <Link href="#" className="flex items-center gap-3 px-4 pt-4 md:mb-10">
         <Image src={`https://flowbite.com/docs/images/logo.svg`} alt="Docudown" width={500} height={500} className="h-5 w-5 sm:h-10 sm:w-10" />
-        <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Docudown</h1>
+        <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white font-header">Docudown</h1>
       </Link>
-      <ul className="grow p-8 mt-4 space-y-4 md:mt-0 md:text-sm md:font-medium">
+      <ul className="grow p-8 grid grid-cols-2 md:block md:space-y-4 text-sm font-medium">
         {data &&
           data.results.map((item: Category) => (
             <li key={item.id} className="relative">

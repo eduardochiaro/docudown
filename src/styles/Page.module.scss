@@ -1,13 +1,13 @@
 .page {
-  @apply text-gray-700 dark:text-white mt-10;
+  @apply text-gray-700 dark:text-white p-8;
   h1 {
-    @apply font-bold text-3xl mb-5;
+    @apply font-bold text-3xl mb-5 font-header;
   }
   h2 {
-    @apply font-bold text-xl my-5 ml-5;
+    @apply font-bold text-xl my-5;
   }
   h3 {
-    @apply font-bold text-lg my-2 ml-5;
+    @apply font-bold text-lg my-2;
   }
   ul {
     @apply list-disc pl-8;

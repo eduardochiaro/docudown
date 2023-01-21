@@ -3,15 +3,19 @@ import { Page } from '@prisma/client';
 import useStaleSWR from '../utils/staleSWR';
 import classNames from '../utils/classNames';
 import Link from "next/link";
+import { BookmarkIcon } from '@heroicons/react/24/solid';
 import { DocumentTextIcon } from '@heroicons/react/24/outline';
 
 const Menu = ({ category, page }: { category: string | string[] | undefined; page: string | string[] | undefined }) => {
   const { data } = useStaleSWR(`/api/categories/${category}`);
 
   return (
-    <div className="w-28 xl:w-56 p-8 flex flex-col justify-between min-h-screen text-gray-700 dark:text-white border-r bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-700">
-      <h1 className="mt-6 text-3xl font-semibold">{category}</h1>
-      <ul className="grow py-8 mt-4 space-y-4 md:mt-0 md:text-sm md:font-medium">
+    <div className="md:w-56 flex flex-col justify-between md:min-h-screen text-gray-700 dark:text-white border-r bg-gray-100 border-gray-300 dark:bg-gray-800 dark:border-gray-700">
+      <h2 className="text-xl px-4 mt-4 md:mb-10 h-5 sm:h-10 font-semibold flex items-center gap-2 font-header">
+        <BookmarkIcon className="w-5" />
+        <span>{category}</span>
+      </h2>
+      <ul className="grow p-8 grid grid-cols-2 md:block md:space-y-4 text-sm font-medium">
         {data &&
           data.results.map((item: Page) => (
             <li key={item.id} className="relative">

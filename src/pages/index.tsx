@@ -13,7 +13,7 @@ export default function Page() {
         <title>Docudown</title>
       </Head>
       <div className="w-full h-full antialiased bg-white dark:bg-gray-700">
-        <div className="flex flex-no-wrap">
+        <div className="md:flex flex-no-wrap">
           <HeaderComponent category={category} />
           {category && <MenuComponent category={category} page={page} />}
           {page && <PageComponent category={category} page={page} />}
