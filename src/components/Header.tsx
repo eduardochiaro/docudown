@@ -11,7 +11,7 @@ const Header = ({ category }: { category: string | string[] | undefined }) => {
 
   return (
     <nav className="md:w-56 flex flex-col justify-between md:min-h-screen border-r bg-gray-50 border-gray-200 dark:bg-gray-900 dark:border-gray-800">
-      <Link href="#" className="flex items-center gap-3 px-4 pt-4 md:mb-10">
+      <Link href="/" className="flex items-center gap-3 px-4 pt-4 md:mb-10">
         <Image src={`https://flowbite.com/docs/images/logo.svg`} alt="Docudown" width={500} height={500} className="h-5 w-5 sm:h-10 sm:w-10" />
         <h1 className="self-center text-xl font-semibold whitespace-nowrap dark:text-white font-header">Docudown</h1>
       </Link>

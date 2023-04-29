@@ -1,13 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import prisma from '@/utils/prisma';
-import { Page } from "@prisma/client";
+import { Page } from '@prisma/client';
 
-type Data = { results: Page[] }
+type Data = { results: Page[] };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const { category } = req.query;
   const pages = await prisma.page.findMany({
     orderBy: {
@@ -15,8 +12,8 @@ export default async function handler(
     },
     where: {
       category: {
-        path: category?.toString()
-      }
+        path: category?.toString(),
+      },
     },
   });
   res.status(200).json({ results: pages });
